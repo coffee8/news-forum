@@ -11,6 +11,9 @@
     "moduleResolution": "node",
     //for absolute import
     "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     //use import, export as require() in common js
     "esModuleInterop": true,
     //instead of import * as React from 'react' can use import React from 'react'
