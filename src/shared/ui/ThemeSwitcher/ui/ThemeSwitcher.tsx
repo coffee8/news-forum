@@ -1,10 +1,10 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from "./ThemeSwitcher.module.scss";
-import {Theme, useTheme} from "app/providers/ThemeProvider";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
-import {Button} from "shared/ui/Button";
-import {ThemeButton} from "shared/ui/Button/ui/Button";
+import { Button } from 'shared/ui/Button';
+import { ThemeButton } from 'shared/ui/Button/ui/Button';
+import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string,
@@ -12,15 +12,16 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
-    const {className} = props;
-    const {theme, toggleTheme} = useTheme();
+    const { className } = props;
+    const { theme, toggleTheme } = useTheme();
 
     return (
-        <Button className={classNames(cls.ThemeSwitcher, {}, [className])}
-                onClick={toggleTheme}
-                theme={ThemeButton.CLEAR}
+        <Button
+            className={classNames(cls.ThemeSwitcher, {}, [className])}
+            onClick={toggleTheme}
+            theme={ThemeButton.CLEAR}
         >
-            {theme === Theme.LIGHT ? <LightIcon/> : <DarkIcon/>}
+            {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
         </Button>
     );
 };
