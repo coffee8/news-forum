@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface BugButtonProps {
     className?: string,
@@ -9,6 +10,7 @@ interface BugButtonProps {
 export const BugButton = (props: BugButtonProps) => {
     const { className } = props;
     const [error, setError] = useState(false);
+    const { t } = useTranslation();
     const onThrow = () => {
         setError(true);
     };
@@ -22,7 +24,7 @@ export const BugButton = (props: BugButtonProps) => {
             onClick={onThrow}
             className={classNames('', {}, [className])}
         >
-            Throw a bug!
+            {t('Throw a bug!')}
         </Button>
     );
 };
