@@ -26,7 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         <div className={classNames(cls.Navbar, {}, [className])}>
             <Button
                 className={cls.links}
-                theme={ButtonTheme.CLEAR_INVERTED}
+                theme={ButtonTheme.OUTLINE_INVERTED}
                 onClick={onShowModal}
             >
                 {t('Войти')}

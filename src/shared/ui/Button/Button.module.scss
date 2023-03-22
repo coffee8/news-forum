@@ -16,10 +16,16 @@
     color: var(--inverted-primary-color);
 }
 
-.outline {
+.outline,
+.outlineInverted {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
+}
+
+.outlineInverted {
+    border: 1px solid var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
 }
 
 .background {
