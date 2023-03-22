@@ -6,15 +6,24 @@ import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
     className?: string,
-
 }
+
 export const LoginForm = (props: LoginFormProps) => {
     const { className } = props;
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Input type="text" className={cls.input} />
-            <Input type="text" className={cls.input} />
+            <Input
+                autofocus
+                type="text"
+                className={cls.input}
+                placeholder={t('Введите имя')}
+            />
+            <Input
+                type="text"
+                className={cls.input}
+                placeholder={t('Введите пароль')}
+            />
             <Button className={cls.loginBtn}>{t('Войти')}</Button>
         </div>
     );

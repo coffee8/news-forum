@@ -1,3 +1,19 @@
-.Input {
+.InputWrapper {
+    display: flex;
+}
 
+.placeholder {
+    margin-right: 5px;
+}
+
+.input {
+    border: none;
+    background: transparent;
+    outline: none;
+    caret-color: var(--primary-color);
+    color: var(--primary-color);
+
+    &:focus {
+        outline: none;
+    }
 }
