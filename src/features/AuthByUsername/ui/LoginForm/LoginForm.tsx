@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +37,8 @@ export const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            {error && <div>{error}</div>}
+            <Text title={t('Форма авторизации')} />
+            {error && <Text text={error} theme={TextTheme.ERROR} />}
             <Input
                 autofocus
                 type="text"
