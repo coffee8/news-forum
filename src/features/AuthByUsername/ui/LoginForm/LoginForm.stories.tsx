@@ -41,3 +41,14 @@ Loading.decorators = [StoreDecorator({
         isLoading: true,
     },
 })];
+
+export const Error = Template.bind({});
+Error.args = {};
+Error.decorators = [StoreDecorator({
+    loginForm: {
+        username: 'username',
+        password: '123',
+        isLoading: false,
+        error: 'error message',
+    },
+})];
