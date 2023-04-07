@@ -42,6 +42,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(async () => {
+        // @ts-ignore
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
@@ -77,7 +78,6 @@ const LoginForm = memo((props: LoginFormProps) => {
                     {t('Войти')}
                 </Button>
             </div>
-
         </DynamicModuleLoader>
     );
 });
