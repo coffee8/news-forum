@@ -11,6 +11,7 @@
     "moduleResolution": "node",
     //for absolute import
     "baseUrl": ".",
+    "strict": true,
     "paths": {
       "*": ["./src/*"]
     },
