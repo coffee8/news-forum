@@ -4,5 +4,6 @@
   "Ваше имя": "First name",
   "Ваша фамилия": "Last name",
   "Произошла ошибка при загрузке пользователя" : "Error downloading profile card",
-  "Попробуйте перезагрузить страницу" : "Try reload page"
+  "Попробуйте перезагрузить страницу" : "Try reload page",
+  "Отменить": "Cancel"
 }
