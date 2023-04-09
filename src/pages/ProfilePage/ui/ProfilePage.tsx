@@ -13,6 +13,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
+import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -24,7 +25,7 @@ interface ProfilePageProps {
 const ProfilePage = memo((props: ProfilePageProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
+    const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
@@ -34,11 +35,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
+        dispatch(profileActions.updateForm({ first: value || '' }));
     }, [dispatch]);
 
     const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+        dispatch(profileActions.updateForm({ lastname: value || '' }));
     }, [dispatch]);
 
     return (
@@ -46,7 +47,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
             <ProfilePageHeader />
             <div className={classNames('', {}, [className])}>
                 <ProfileCard
-                    data={data}
+                    data={formData}
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
