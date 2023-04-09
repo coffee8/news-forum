@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
@@ -7,7 +7,7 @@ import {
     getProfileData,
     getProfileIsLoading,
     getProfileError,
-    getProfileReadonly,
+    getProfileReadonly, profileActions,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
@@ -33,11 +33,26 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         dispatch(fetchProfileData());
     }, [dispatch]);
 
+    const onChangeFirstname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ first: value || '' }));
+    }, [dispatch]);
+
+    const onChangeLastname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
             <div className={classNames('', {}, [className])}>
-                <ProfileCard data={data} isLoading={isLoading} error={error} readonly={readonly} />
+                <ProfileCard
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                />
             </div>
         </DynamicModuleLoader>
     );
