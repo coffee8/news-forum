@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { Input } from 'shared/ui/Input/Input';
+import { Input, InputTypes } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -14,6 +14,8 @@ interface ProfileCardProps {
     readonly?: boolean,
     onChangeFirstname?: (value?: string) => void,
     onChangeLastname?: (value?: string) => void,
+    onChangeAge?: (value?: string | number) => void,
+    onChangeCity?: (value?: string) => void,
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -25,7 +27,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         readonly,
         onChangeFirstname,
         onChangeLastname,
-
+        onChangeAge,
+        onChangeCity,
     } = props;
     const { t } = useTranslation('profileCard');
 
@@ -66,6 +69,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readOnly={readonly}
                     onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.age}
+                    placeholder={t('Возраст')}
+                    type={InputTypes.NUMBER}
+                    className={cls.input}
+                    readOnly={readonly}
+                    onChange={onChangeAge}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('Город')}
+                    className={cls.input}
+                    readOnly={readonly}
+                    onChange={onChangeCity}
                 />
             </div>
 

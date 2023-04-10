@@ -42,6 +42,14 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         dispatch(profileActions.updateForm({ lastname: value || '' }));
     }, [dispatch]);
 
+    const onChangeAge = useCallback((value?: string | number) => {
+        dispatch(profileActions.updateForm({ age: Number(value || 0) }));
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value?: string) => {
+        dispatch(profileActions.updateForm({ city: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
@@ -53,6 +61,8 @@ const ProfilePage = memo((props: ProfilePageProps) => {
                     readonly={readonly}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
                 />
             </div>
         </DynamicModuleLoader>

@@ -10,11 +10,16 @@ import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
+export enum InputTypes {
+    TEXT = 'text',
+    NUMBER = 'number',
+}
+
 interface InputProps extends HTMLInputProps {
     className?: string,
-    value?: string,
+    value?: string | number,
     onChange?: (value: string) => void,
-    type?: string,
+    type?: InputTypes,
     placeholder?: string,
     autofocus?: boolean,
     readonly?: boolean,
@@ -25,7 +30,7 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         onChange,
-        type = 'text',
+        type = InputTypes.TEXT,
         placeholder,
         autofocus,
         readonly,

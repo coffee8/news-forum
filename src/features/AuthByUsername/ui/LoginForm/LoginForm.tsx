@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Input } from 'shared/ui/Input/Input';
+import { Input, InputTypes } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import React, { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
@@ -56,14 +56,14 @@ const LoginForm = memo((props: LoginFormProps) => {
                 {error && <Text text={t('Ошибка')} theme={TextTheme.ERROR} />}
                 <Input
                     autofocus
-                    type="text"
+                    type={InputTypes.TEXT}
                     className={cls.input}
                     placeholder={t('Введите имя')}
                     onChange={onChangeUsername}
                     value={username}
                 />
                 <Input
-                    type="text"
+                    type={InputTypes.TEXT}
                     className={cls.input}
                     placeholder={t('Введите пароль')}
                     onChange={onChangePassword}
