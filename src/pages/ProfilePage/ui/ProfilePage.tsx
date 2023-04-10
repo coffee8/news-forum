@@ -4,7 +4,6 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoade
 import {
     fetchProfileData,
     profileReducer,
-    getProfileData,
     getProfileIsLoading,
     getProfileError,
     getProfileReadonly, profileActions,
@@ -50,6 +49,14 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         dispatch(profileActions.updateForm({ city: value || '' }));
     }, [dispatch]);
 
+    const onChangeUsername = useCallback((value?: string) => {
+        dispatch(profileActions.updateForm({ username: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value?: string) => {
+        dispatch(profileActions.updateForm({ username: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
@@ -63,6 +70,8 @@ const ProfilePage = memo((props: ProfilePageProps) => {
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
                 />
             </div>
         </DynamicModuleLoader>
