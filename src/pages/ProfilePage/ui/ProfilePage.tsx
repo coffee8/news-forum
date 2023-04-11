@@ -54,7 +54,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     }, [dispatch]);
 
     const onChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateForm({ username: value || '' }));
+        dispatch(profileActions.updateForm({ avatar: value || '' }));
     }, [dispatch]);
 
     return (
