@@ -1,0 +1,28 @@
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Select } from './Select';
+
+export default {
+    title: 'shared/Avatar',
+    component: Select,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Select>;
+
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+    label: 'Select values',
+    options: [
+        {
+            value: '123',
+            content: 'Some content 1',
+        },
+        {
+            value: '456',
+            content: 'Some content 2',
+        },
+    ],
+};
