@@ -4,6 +4,8 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input, InputTypes } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency } from 'entities/Currency/model/types/currency';
+import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -19,6 +21,7 @@ interface ProfileCardProps {
     onChangeCity?: (value?: string) => void,
     onChangeUsername?: (value?: string) => void,
     onChangeAvatar?: (value?: string) => void,
+    onChangeCurrency?: (currency?: Currency) => void,
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -34,6 +37,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCity,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
     } = props;
     const { t } = useTranslation('profileCard');
 
@@ -68,7 +72,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 {data?.avatar
                 && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar src={data?.avatar} alt="user avatar" size={100} />
+                        <Avatar
+                            src={data?.avatar}
+                            alt="user avatar"
+                            size={100}
+                        />
                     </div>
                 )}
                 <Input
@@ -106,6 +114,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readOnly={readonly}
                     onChange={onChangeUsername}
+                />
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
                 />
             </div>
 
