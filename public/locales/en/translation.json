@@ -8,5 +8,7 @@
   "Значение": "Value",
   "Увеличить": "Increment",
   "Уменьшить": "Decrement",
-  "Введите текст": "Enter text"
+  "Введите текст": "Enter text",
+  "Укажите страну": "Choose country",
+  "Укажите валюту": "Choose currency"
 }
