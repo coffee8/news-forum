@@ -21,11 +21,11 @@ export const SidebarItemsList: SidebarItemType[] = [
         path: RoutePath.profile,
         text: 'Профиль',
         Icon: ProfileIcon,
+        authOnly: true,
     },
     {
         path: RoutePath.about,
         text: 'О сайте',
         Icon: AboutIcon,
-        authOnly: true,
     },
 ];
