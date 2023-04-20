@@ -2,8 +2,11 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
+@import "themes/peach";
 
-body {
+
+.app,
+.app_modal {
     font: var(--font-m);
     color: var(--primary-color);
 }
