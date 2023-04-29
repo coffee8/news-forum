@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -12,6 +12,10 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
     getArticleDetailsData,
@@ -36,6 +40,25 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoaiding);
     const article = useSelector(getArticleDetailsData);
+
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.TEXT:
+            return (
+                <ArticleTextBlockComponent />
+            );
+        case ArticleBlockType.IMAGE:
+            return (
+                <ArticleImageBlockComponent />
+            );
+        case ArticleBlockType.CODE:
+            return (
+                <ArticleCodeBlockComponent />
+            );
+        default:
+            return null;
+        }
+    }, []);
 
     useEffect(() => {
         dispatch(fetchArticleById(id));
@@ -86,6 +109,7 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
                     <Icon className={cls.icon} Svg={CalendarIcon} />
                     <Text text={String(article?.createdAt)} />
                 </div>
+                {article?.blocks.map(renderBlock)}
             </>
         );
     }
