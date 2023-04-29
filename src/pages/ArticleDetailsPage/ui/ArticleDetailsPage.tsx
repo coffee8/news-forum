@@ -16,7 +16,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticlesPage, {}, [className])} />
+            <div className={classNames(cls.ArticleDetailsPage, {}, [className])} />
         );
     }
     return (
