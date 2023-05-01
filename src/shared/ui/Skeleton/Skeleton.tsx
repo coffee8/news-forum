@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { CSSProperties } from 'react';
-import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string,
@@ -26,7 +25,7 @@ export const Skeleton = (props: SkeletonProps) => {
     const { t } = useTranslation();
     return (
         <div
-            className={classNames(cls.Skeleton, {}, [className])}
+            className={classNames('', {}, [className])}
             style={styles}
         />
     );

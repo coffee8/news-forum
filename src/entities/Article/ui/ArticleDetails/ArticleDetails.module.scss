@@ -4,6 +4,7 @@
 
 .avatar {
     margin: 0 auto;
+    align-items: center;
 }
 
 .title {
@@ -27,4 +28,8 @@
     display: flex;
     width: 100%;
     justify-content: center;
+}
+
+.block {
+    margin-top: 16px;
 }

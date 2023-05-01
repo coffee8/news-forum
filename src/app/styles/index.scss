@@ -4,7 +4,6 @@
 @import "themes/dark";
 @import "themes/peach";
 
-
 .app,
 .app_modal {
     font: var(--font-m);
@@ -25,4 +24,5 @@
     padding: 20px 20px 20px 45px;
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
+    width: 100%;
 }
