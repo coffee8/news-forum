@@ -107,13 +107,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://www.google.com/search?q=avatar+icon&rlz=1C5CHFA_enTR1051TR1051&sxsrf=APwXEdc5WNYclZkVtJQv0A4m7v2tbhHByw:1683371085419&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiP88j8xeD-AhWBX_EDHWBRBjAQ_AUoAXoECAIQAw&biw=1440&bih=821&dpr=2#imgrc=p-VCL12tHuyniM"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://www.google.com/search?q=avatar+icon&rlz=1C5CHFA_enTR1051TR1051&sxsrf=APwXEdc5WNYclZkVtJQv0A4m7v2tbhHByw:1683371085419&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiP88j8xeD-AhWBX_EDHWBRBjAQ_AUoAXoECAIQAw&biw=1440&bih=821&dpr=2#imgrc=p-VCL12tHuyniM"
     }
   ],
   "profile": {
