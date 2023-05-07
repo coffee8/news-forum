@@ -87,19 +87,19 @@
       "id": "1",
       "body": "some comment",
       "articleId": "1",
-      "postId": "1"
+      "userId": "1"
     },
     {
       "id": "2",
       "body": "some comment 2",
       "articleId": "1",
-      "postId": "1"
+      "userId": "1"
     },
     {
-      "id": "2",
+      "id": "3",
       "body": "some comment 3",
       "articleId": "1",
-      "postId": "1"
+      "userId": "1"
     }
   ],
   "users": [
