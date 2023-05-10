@@ -21,6 +21,8 @@ import {
     getProfileValidationErrors,
 } from 'entities/Profile/model/selectors/getProfileValidationErrors/getProfileValidationErrors';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -38,6 +40,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidationErrors);
     const { t } = useTranslation('profilePage');
+    const { id } = useParams<{id: string}>();
     const validateErrorTranslations = {
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -46,11 +49,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateForm({ first: value || '' }));

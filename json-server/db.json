@@ -118,14 +118,28 @@
       "avatar": "https://www.google.com/search?q=avatar+icon&rlz=1C5CHFA_enTR1051TR1051&sxsrf=APwXEdc5WNYclZkVtJQv0A4m7v2tbhHByw:1683371085419&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiP88j8xeD-AhWBX_EDHWBRBjAQ_AUoAXoECAIQAw&biw=1440&bih=821&dpr=2#imgrc=p-VCL12tHuyniM"
     }
   ],
-  "profile": {
-    "first": "Sherkhan",
-    "lastname": "Nasyrov",
-    "age": 2211,
-    "currency": "EUR",
-    "country": "USA",
-    "city": "Istanbul",
-    "username": "admin",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Sherkhan",
+      "lastname": "Nasyrov",
+      "age": 2211,
+      "currency": "EUR",
+      "country": "USA",
+      "city": "Istanbul",
+      "username": "admin",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "2",
+      "first": "Vladislav",
+      "lastname": "Veto",
+      "age": 2211,
+      "currency": "RUB",
+      "country": "RUSSIA",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    }
+  ]
 }
