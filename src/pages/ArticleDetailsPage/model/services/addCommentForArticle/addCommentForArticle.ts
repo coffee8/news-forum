@@ -3,22 +3,20 @@ import { Comment } from 'entities/Comment';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
-import { addCommentFormActions } from 'features/addCommentForm/model/slices/addCommentFormSlice';
-import { getAddCommentFormText } from '../../../model/selectors/addCommentFormSelectors';
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId';
 
-export const sendComment = createAsyncThunk<
+export const addCommentForArticle = createAsyncThunk<
     Comment,
-    void,
+    string,
     ThunkConfig<string>
 >(
-    'addCommentForm/sendComment',
-    async (authData, thunkAPI) => {
+    'articleDetails/addCommentForArticle',
+    async (text, thunkAPI) => {
         const {
             dispatch, extra, rejectWithValue, getState,
         } = thunkAPI;
 
         const userData = getUserAuthData(getState());
-        const text = getAddCommentFormText(getState());
         const article = getArticleDetailsData(getState());
 
         if (!userData || !text || !article) {
@@ -28,14 +26,16 @@ export const sendComment = createAsyncThunk<
         try {
             const response = await extra.api.post<Comment>('/comments', {
                 articleId: article?.id,
-                userData: userData?.id,
+                userId: userData?.id,
                 text,
             });
+
             if (!response.data) {
                 throw new Error();
             }
 
-            dispatch(addCommentFormActions.setText(''));
+            dispatch(fetchCommentsByArticleId(article?.id));
+
             return response.data;
         } catch (e) {
             console.log(e);
