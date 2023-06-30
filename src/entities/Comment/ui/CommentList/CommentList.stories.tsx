@@ -6,7 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
 
 export default {
-    title: 'shared/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,5 +15,29 @@ export default {
 
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Normal = Template.bind({});
+Normal.args = {
+    comments: [
+        {
+            id: '1',
+            user: { id: '1', username: 'Ali' },
+            text: 'comment for storybook',
+        },
+        {
+            id: '2',
+            user: { id: '2', username: 'Mehmet' },
+            text: 'comment for storybook 2',
+        },
+        {
+            id: '3',
+            user: { id: '1', username: 'Ali' },
+            text: 'comment for storybook 3',
+        },
+    ],
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+    comments: [],
+    isLoading: true,
+};
