@@ -16,7 +16,7 @@ export const ArticleList = (props: ArticleListProps) => {
         className,
         articles,
         isLoading,
-        view = ArticleView.SMALL,
+        view = ArticleView.BIG,
     } = props;
     const { t } = useTranslation();
 
@@ -25,11 +25,12 @@ export const ArticleList = (props: ArticleListProps) => {
             article={article}
             view={view}
             className={cls.card}
+            key={article.id}
         />
     );
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}

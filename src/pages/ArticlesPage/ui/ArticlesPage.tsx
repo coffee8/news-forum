@@ -16,6 +16,11 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'Sherkhan',
+        avatar: 'https://www.google.com/search?q=avatar+icon&rlz=1C5CHFA_enTR1051TR1051&sxsrf=APwXEdc5WNYclZkVtJQv0A4m7v2tbhHByw:1683371085419&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiP88j8xeD-AhWBX_EDHWBRBjAQ_AUoAXoECAIQAw&biw=1440&bih=821&dpr=2#imgrc=p-VCL12tHuyniM',
+    },
     type: [
         'IT',
     ],
