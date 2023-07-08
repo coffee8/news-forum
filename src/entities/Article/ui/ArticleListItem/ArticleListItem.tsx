@@ -6,6 +6,9 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -21,6 +24,11 @@ interface ArticleListItemProps {
 export const ArticleListItem = (props: ArticleListItemProps) => {
     const { className, article, view } = props;
     const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const onOpenArticle = useCallback(() => {
+        navigate(RoutePath.article_details + article.id);
+    }, [article.id, navigate]);
 
     const views = (
         <>
@@ -53,7 +61,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <Button theme={ButtonTheme.OUTLINE}>
+                        <Button theme={ButtonTheme.OUTLINE} onClick={onOpenArticle}>
                             {t('Читать далее...')}
                         </Button>
                         {views}
@@ -65,7 +73,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <Card className={cls.card}>
+            <Card className={cls.card} onClick={onOpenArticle}>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} alt={article.title} className={cls.img} />
                     <Text text={article.createdAt} className={cls.date} />
