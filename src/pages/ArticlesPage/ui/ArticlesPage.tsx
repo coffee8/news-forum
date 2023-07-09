@@ -93,10 +93,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            <ArticleList articles={new Array(16).fill(0).map((item, index) => ({
-                ...article,
-                id: String(index),
-            }))}
+            <ArticleList
+                articles={new Array(16).fill(0).map((item, index) => ({
+                    ...article,
+                    id: String(index),
+                }))}
             />
         </div>
     );
