@@ -22,7 +22,7 @@ export const ArticleList = (props: ArticleListProps) => {
     const {
         className,
         articles,
-        isLoading = true,
+        isLoading,
         view = ArticleView.BIG,
     } = props;
     const { t } = useTranslation();
