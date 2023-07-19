@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -30,12 +31,13 @@ export const Page = (props: PageProps) => {
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
-    const onScroll = (e: UIEvent<HTMLDivElement>) => {
+
+    const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(scrollSaveActions.setScrollPosition({
             position: e.currentTarget.scrollTop,
             path: pathname,
         }));
-    };
+    }, 200);
 
     return (
         <section
