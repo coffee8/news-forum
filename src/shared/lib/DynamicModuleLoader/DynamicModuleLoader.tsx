@@ -1,5 +1,5 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { FC, useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -25,9 +25,13 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap();
         Object.entries(reducers).forEach(([name, reducers]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducers);
-            dispatch({ type: `@INIT ${name} reducer` });
+            const mounted = mountedReducers[name as StateSchemaKey];
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducers);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {
