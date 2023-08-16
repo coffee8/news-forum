@@ -26,6 +26,7 @@ const articlesPageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
         sort: ArticleSortField.CREATED,
         order: 'asc',
         search: '',
@@ -69,7 +70,8 @@ const articlesPageSlice = createSlice({
                 action,
             ) => {
                 state.isLoading = false;
-                state.hasMore = action.payload.length > 0;
+                // @ts-ignore
+                state.hasMore = action.payload.length >= state.limit;
                 if (action.meta.arg.replace) {
                     articlesAdapter.removeAll(state);
                 } else {
