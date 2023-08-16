@@ -9,7 +9,9 @@ import {
     getArticlesPageSort,
 } from '../../selectors/articlesPageSelectors';
 
-interface FetchArticlesListProps {}
+interface FetchArticlesListProps {
+    replace?: boolean;
+}
 
 export const fetchArticlesList = createAsyncThunk<
     Article[],
