@@ -8,7 +8,10 @@ import { CombinedState } from 'redux';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsPageRecommendationsSchema,
+} from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
@@ -22,6 +25,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
     articleDetailsComments?: ArticleDetailsCommentsSchema,
+    articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema,
     addCommentForm?: AddCommentFormSchema,
     articlesPage?: ArticlesPageSchema
 }

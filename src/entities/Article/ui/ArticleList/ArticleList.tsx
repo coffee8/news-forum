@@ -24,7 +24,7 @@ export const ArticleList = (props: ArticleListProps) => {
         className,
         articles,
         isLoading,
-        view = ArticleView.BIG,
+        view = ArticleView.SMALL,
     } = props;
     const { t } = useTranslation();
 
