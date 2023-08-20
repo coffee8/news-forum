@@ -17,20 +17,13 @@ import {
     getArticleRecommendationsError,
     getArticleRecommendationsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
-import {
-    fetchArticleRecommendations,
-} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import {
-    articleDetailsRecommendationsReducer,
-    getArticleRecommendations,
-} from '../model/slices/articleDetailsRecommendationsSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
-import {
-    articleDetailsCommentsReducer,
-    getArticleComments,
-} from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -38,8 +31,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendations: articleDetailsRecommendationsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {

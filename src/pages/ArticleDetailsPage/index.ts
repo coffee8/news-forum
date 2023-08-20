@@ -2,4 +2,5 @@ export { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommen
 export {
     ArticleDetailsPageRecommendationsSchema,
 } from './model/types/articleDetailsPageRecommendationsSchema';
+export { ArticleDetailsPageSchema } from './model/types/index';
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPageAsync';
