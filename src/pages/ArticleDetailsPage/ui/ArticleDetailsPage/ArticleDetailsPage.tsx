@@ -18,12 +18,12 @@ import {
     getArticleRecommendationsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
-import { getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
-import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
