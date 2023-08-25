@@ -16,7 +16,7 @@ interface ArticleDetailsPageHeaderProps {
 
 export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articleDetailsPage');
     const navigate = useNavigate();
     const userData = useSelector(getUserAuthData);
     const article = useSelector(getArticleDetailsData);

@@ -16,7 +16,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         value,
         onChangeType,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articlesPageFilters');
 
     const typeTabs = useMemo<TabItem[]>(() => [
         {

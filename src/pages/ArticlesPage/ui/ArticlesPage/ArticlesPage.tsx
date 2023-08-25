@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { ArticleList } from 'entities/Article';
@@ -29,7 +28,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
     const { id } = useParams<{id: string}>();
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();

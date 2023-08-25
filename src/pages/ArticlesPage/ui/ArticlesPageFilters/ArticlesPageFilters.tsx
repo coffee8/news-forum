@@ -28,7 +28,7 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articlesPageFilters');
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlesPageView);
     const order = useSelector(getArticlesPageOrder);

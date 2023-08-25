@@ -22,31 +22,31 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
         onChangeSort,
         onChangeOrder,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articlesPageFilters');
 
     const orderOptions = useMemo<SelectOptions<SortOrder>[]>(() => [
         {
             value: 'asc',
-            content: t(' возрастанию'),
+            content: t('возрастанию'),
         },
         {
             value: 'desc',
-            content: t(' убыванию'),
+            content: t('убыванию'),
         },
     ], [t]);
 
     const sortOrderOptions = useMemo<SelectOptions<ArticleSortField>[]>(() => [
         {
             value: ArticleSortField.CREATED,
-            content: t(' дате создания'),
+            content: t('дате создания'),
         },
         {
             value: ArticleSortField.VIEW,
-            content: t(' просмотрам'),
+            content: t('просмотрам'),
         },
         {
             value: ArticleSortField.TITLE,
-            content: t(' названию'),
+            content: t('названию'),
         },
     ], [t]);
 
