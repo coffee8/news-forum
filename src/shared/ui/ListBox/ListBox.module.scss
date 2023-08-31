@@ -1,0 +1,17 @@
+.ListBox {
+    position: relative;
+}
+
+.trigger {
+
+}
+
+.options {
+    background-color: var(--listbox-bg);
+    position: absolute;
+    z-index: 10000;
+}
+
+.item {
+    padding: 10px 20px;
+}
