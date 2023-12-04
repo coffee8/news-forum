@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { HTMLAttributeAnchorTarget } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -21,7 +21,7 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL
         <ArticleListItemSkeleton className={cls.card} view={view} key={index} />
     ));
 
-export const ArticleList = (props: ArticleListProps) => {
+export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
@@ -61,4 +61,4 @@ export const ArticleList = (props: ArticleListProps) => {
             )}
         </div>
     );
-};
+});
