@@ -3,6 +3,9 @@ import { memo } from 'react';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
 import { EditableProfileCard } from 'features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard';
+import { useParams } from 'react-router-dom';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 interface ProfilePageProps {
     className?: string,
@@ -10,11 +13,19 @@ interface ProfilePageProps {
 
 const ProfilePage = memo((props: ProfilePageProps) => {
     const { className } = props;
+    const { id } = useParams<{id: string}>();
+    const { t } = useTranslation('profilePage');
+
+    if (!id) {
+        return (
+            <Text title={t('Страница не найдена')} />
+        );
+    }
 
     return (
         <Page className={classNames('', {}, [className])}>
             <VStack gap="16" max>
-                <EditableProfileCard />
+                <EditableProfileCard id={id} />
             </VStack>
         </Page>
     );

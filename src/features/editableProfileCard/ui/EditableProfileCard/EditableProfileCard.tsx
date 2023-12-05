@@ -3,16 +3,13 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useCallback } from 'react';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
-import {
-    EditableProfileCardHeader,
-} from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -28,10 +25,11 @@ const reducers: ReducersList = {
 
 interface EditableProfileCardProps {
     className?: string,
+    id: string,
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
-    const { className } = props;
+    const { className, id } = props;
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -39,7 +37,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidationErrors);
     const { t } = useTranslation('profilePage');
-    const { id } = useParams<{id: string}>();
     const validateErrorTranslations = {
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -95,6 +92,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                         text={validateErrorTranslations[err]}
                         key={err}
                         theme={TextTheme.ERROR}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
