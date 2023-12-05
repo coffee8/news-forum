@@ -5,7 +5,6 @@ import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
     CombinedState,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/addCommentForm';
@@ -13,6 +12,7 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema,

@@ -7,11 +7,11 @@ import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/addCommentForm';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import cls from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
     className?: string,
@@ -34,13 +34,13 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ArticleDetailsComments, {}, [className])}>
-            <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <VStack gap="16" className={classNames('', {}, [className])}>
+            <Text title={t('Комментарии')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}
             />
-        </div>
+        </VStack>
     );
 };
