@@ -1,5 +1,7 @@
-export { getUserInited } from 'entities/User/model/selectors/getUserInited/getUserInited';
-export { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData';
+export { getUserInited } from './model/selectors/getUserInited/getUserInited';
+export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
+export { isUserAdmin, isUserManager } from './model/selectors/roleSelectors';
+
 export {
     userActions,
     userReducer,
@@ -8,4 +10,5 @@ export {
 export {
     UserSchema,
     User,
+    UserRoles,
 } from './model/types/userSchema';
