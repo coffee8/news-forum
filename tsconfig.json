@@ -19,6 +19,7 @@
     "esModuleInterop": true,
     //instead of import * as React from 'react' can use import React from 'react'
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
   },
   "ts-node": {
     "compilerOptions": {

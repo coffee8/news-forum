@@ -7,8 +7,8 @@ export {
     userReducer,
 } from './model/slice/userSlice';
 
-export {
+export type {
     UserSchema,
     User,
-    UserRoles,
 } from './model/types/userSchema';
+export { UserRoles } from 'entities/User/model/consts/consts';

@@ -4,7 +4,7 @@ import BigIcon from 'shared/assets/icons/big-20-20.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { memo } from 'react';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
