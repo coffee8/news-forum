@@ -4,4 +4,3 @@ export type {
 } from './model/types/articleDetailsPageRecommendationsSchema';
 export type { ArticleDetailsPageSchema } from './model/types/index';
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPageAsync';
-export { getCanEditArticle } from './model/selectors/article';
